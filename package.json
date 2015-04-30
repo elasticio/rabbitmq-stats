@@ -1,0 +1,22 @@
+{
+  "name": "rabbitmq-stats",
+  "version": "0.0.1",
+  "description": "RabbitMQ management API wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http"
+  },
+  "keywords": [
+    "rabbitmq"
+  ],
+  "author": "Pavel Nedelko",
+  "license": "ISC",
+  "dependencies": {
+    "request-promise": "0.4.2",
+    "lodash": "3.7.0"
+  }
+}
