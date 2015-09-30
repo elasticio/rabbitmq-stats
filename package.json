@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "description": "RabbitMQ Management API client",
   "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/gulp/bin/gulp.js test"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/elasticio/rabbitmq-stats.git"
+  },
+  "scripts": {
+    "test": "./node_modules/gulp/bin/gulp.js test"
   },
   "keywords": [
     "rabbitmq"
