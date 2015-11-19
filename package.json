@@ -13,7 +13,7 @@
   "keywords": [
     "rabbitmq"
   ],
-  "author": "Pavel Nedelko",
+  "author": "elastic.io GmbH",
   "license": "ISC",
   "dependencies": {
     "request-promise": "0.4.2",
