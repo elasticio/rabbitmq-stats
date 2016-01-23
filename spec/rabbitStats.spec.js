@@ -27,8 +27,9 @@ describe('RabbitStats test', function () {
                 .get('/api/queues/%2F')
                 .reply(200, {"data": {"queue1": "params"}});
 
-            instance.getVhostQueues('%2F')
-                .then(checkResponse);
+            instance.getVhostQueues('/')
+                .then(checkResponse)
+                .catch(done.fail);;
 
             function checkResponse(data){
                 expect(data).toEqual({"data": {"queue1": "params"}});
@@ -42,7 +43,7 @@ describe('RabbitStats test', function () {
                 .get('/api/queues/%2F')
                 .reply(404, "Request failed");
 
-            instance.getVhostQueues('%2F')
+            instance.getVhostQueues('/')
                 .catch(checkError);
 
             function checkError(err){
@@ -61,7 +62,8 @@ describe('RabbitStats test', function () {
                 .reply(200);
 
             instance.putUser('testuser', {password: "123456"})
-                .then(checkResponse);
+                .then(checkResponse)
+                .catch(done.fail);
 
             function checkResponse(data){
                 expect(data).toEqual(undefined);
@@ -77,8 +79,9 @@ describe('RabbitStats test', function () {
                 .put('/api/permissions/%2F/testuser')
                 .reply(200);
 
-            instance.setUserPermissions('testuser', '%2F', {permission1: "value1", permission2: "value2"})
-                .then(checkResponse);
+            instance.setUserPermissions('testuser', '/', {permission1: "value1", permission2: "value2"})
+                .then(checkResponse)
+                .catch(done.fail);
 
             function checkResponse(data){
                 expect(data).toEqual(undefined);

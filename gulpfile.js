@@ -9,7 +9,7 @@ var paths = {
 };
 
 gulp.task('jasmine', function() {
-    gulp
+    return gulp
         .src(paths.spec)
         .pipe(jasmine({
             includeStackTrace: true,
