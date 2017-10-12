@@ -90,4 +90,38 @@ describe('RabbitStats test', function () {
         });
     });
 
+    describe('deleteVhostQueueContents', function() {
+        it('successful request', function(done) {
+
+            nock('http://some-host.com:80')
+                .delete('/api/queues/super-host/important-queue/contents')
+                .reply(200);
+
+            instance.deleteVhostQueueContents('super-host', 'important-queue')
+                .then(checkResponse)
+                .catch(done.fail);
+
+            function checkResponse(data) {
+                expect(data).toEqual();
+                done();
+            }
+        });
+
+        it('failed request', function(done) {
+
+            nock('http://some-host.com:80')
+                .delete('/api/queues/super-host/important-queue/contents')
+                .reply(500, "Error");
+
+            instance.deleteVhostQueueContents('super-host', 'important-queue')
+                .catch(checkError);
+
+            function checkError(err) {
+                expect(err.message).toEqual('500 - Error');
+                done();
+            }
+        });
+
+    });
+
 });
