@@ -95,7 +95,7 @@ describe('RabbitStats test', function () {
 
             nock('http://some-host.com:80')
                 .delete('/api/queues/super-host/important-queue/contents')
-                .reply(200);
+                .reply(204);
 
             instance.deleteVhostQueueContents('super-host', 'important-queue')
                 .then(checkResponse)
