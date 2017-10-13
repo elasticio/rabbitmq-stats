@@ -9,9 +9,16 @@ describe('RabbitStats test', function () {
         'pass'
     );
 
-    describe('client', function () {
+    var badHeadersForDelete = {
+        badheaders: {
+            accept: 'application/json'
+        }
+    };
 
-        it('all necessry methods should be present', function (done) {
+
+    describe('client', function() {
+
+        it('all necessry methods should be present', function(done) {
             expect(instance.getVhostQueues).toBeDefined();
             expect(instance.putUser).toBeDefined();
             expect(instance.setUserPermissions).toBeDefined();
@@ -92,8 +99,7 @@ describe('RabbitStats test', function () {
 
     describe('deleteVhostQueueContents', function() {
         it('successful request', function(done) {
-
-            nock('http://some-host.com:80')
+            nock('http://some-host.com:80', badHeadersForDelete)
                 .delete('/api/queues/super-host/important-queue/contents')
                 .reply(204);
 
@@ -102,14 +108,14 @@ describe('RabbitStats test', function () {
                 .catch(done.fail);
 
             function checkResponse(data) {
-                expect(data).toEqual();
+                expect(data).toBeFalsy();
                 done();
             }
         });
 
         it('failed request', function(done) {
 
-            nock('http://some-host.com:80')
+            nock('http://some-host.com:80', badHeadersForDelete)
                 .delete('/api/queues/super-host/important-queue/contents')
                 .reply(500, "Error");
 
