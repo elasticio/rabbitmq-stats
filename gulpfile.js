@@ -1,14 +1,14 @@
-var gulp = require('gulp');
-var jasmine = require('gulp-jasmine');
-var jscs = require('gulp-jscs');
+const gulp = require('gulp');
+const jasmine = require('gulp-jasmine');
+const jscs = require('gulp-jscs');
 
-var paths = {
+const paths = {
     code: ['./lib/**/*.js'],
     spec: ['./spec/**/*.spec.js'],
     coverageReport: 'coverage/lcov.info'
 };
 
-gulp.task('jasmine', function() {
+gulp.task('jasmine', function () {
     return gulp
         .src(paths.spec)
         .pipe(jasmine({
@@ -17,7 +17,7 @@ gulp.task('jasmine', function() {
         }));
 });
 
-gulp.task('jscs', function() {
+gulp.task('jscs', function () {
     return gulp
         .src(paths.code)
         .pipe(jscs());
