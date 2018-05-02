@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "uri": "https://github.com/elasticio/rabbitmq-stats.git"
+    "url": "https://github.com/elasticio/rabbitmq-stats.git"
   },
   "scripts": {
     "test": "gulp test"
