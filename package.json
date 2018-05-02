@@ -1,6 +1,6 @@
 {
   "name": "rabbitmq-stats",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "RabbitMQ Management API client",
   "main": "index.js",
   "repository": {
@@ -13,6 +13,9 @@
   "keywords": [
     "rabbitmq"
   ],
+  "engines": {
+    "node": ">=8.4.0"
+  },
   "author": "elastic.io GmbH",
   "license": "ISC",
   "dependencies": {
