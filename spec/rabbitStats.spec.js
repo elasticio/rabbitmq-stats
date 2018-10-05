@@ -14,6 +14,7 @@ describe('RabbitStats test', function () {
             expect(instance.getVhostQueues).toBeDefined();
             expect(instance.putUser).toBeDefined();
             expect(instance.setUserPermissions).toBeDefined();
+            expect(instance.getPolicies).toBeDefined();
             done();
         });
     });
@@ -43,6 +44,34 @@ describe('RabbitStats test', function () {
 
             function checkError(err) {
                 expect(err.message).toEqual('404 - "Request failed"');
+                done();
+            }
+        });
+    });
+
+    describe('getPolicies', function () {
+        it('successful request', function (done) {
+            const responseExample = [{
+                vhost: '/',
+                name: 'ha-all',
+                pattern: '',
+                'apply-to': 'all',
+                definition: {
+                    'ha-mode': 'all',
+                    'ha-sync-mode': 'automatic'
+                },
+                priority: 0
+            }];
+            nock('http://some-host.com:80')
+                .get('/api/policies')
+                .reply(200, responseExample);
+
+            instance.getPolicies()
+                .then(checkResponse)
+                .catch(done.fail);
+
+            function checkResponse(data) {
+                expect(data).toEqual(responseExample);
                 done();
             }
         });
