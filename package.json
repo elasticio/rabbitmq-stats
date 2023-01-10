@@ -1,6 +1,6 @@
 {
   "name": "rabbitmq-stats",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "RabbitMQ Management API client",
   "main": "index.js",
   "repository": {
