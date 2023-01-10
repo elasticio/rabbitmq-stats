@@ -24,10 +24,10 @@
     "request-promise": "4.2.2"
   },
   "devDependencies": {
-    "gulp": "3.8.11",
+    "gulp": "4.0.2",
     "gulp-jasmine": "2.0.1",
     "nock": "1.6.1",
-    "gulp-jscs": "1.6.0",
+    "gulp-jscs": "4.1.0",
     "code-quality-js": "git+https://github.com/elasticio/code-quality-js.git#master"
   }
 }
